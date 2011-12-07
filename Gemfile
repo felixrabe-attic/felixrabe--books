@@ -36,3 +36,4 @@ group :test do
 end
 
 gem "nifty-generators", :group => :development
+gem "mocha", :group => :test
