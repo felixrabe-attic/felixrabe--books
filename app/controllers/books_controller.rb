@@ -9,7 +9,10 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    3.times { @book.chapters.build }
+    3.times {
+      c = @book.chapters.build
+      4.times { c.paragraphs.build }
+    }
   end
 
   def create
