@@ -9,6 +9,12 @@
   <%= @book.author %>
 </p>
 
+<ul>
+  <% for chapter in @book.chapters %>
+    <li><%= chapter.heading %></li>
+  <% end %>
+</ul>
+
 <p>
   <%= link_to "Edit", edit_book_path(@book) %> |
   <%= link_to "Destroy", @book, :confirm => 'Are you sure?', :method => :delete %> |
