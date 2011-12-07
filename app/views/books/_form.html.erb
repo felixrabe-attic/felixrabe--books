@@ -8,5 +8,11 @@
     <%= f.label :author %><br />
     <%= f.text_field :author %>
   </p>
+  <%= f.fields_for :chapters do |c| %>
+    <p>
+      <%= c.label :heading, "Chapter" %><br />
+      <%= c.text_field :heading %>
+    </p>
+  <% end %>
   <p><%= f.submit %></p>
 <% end %>
