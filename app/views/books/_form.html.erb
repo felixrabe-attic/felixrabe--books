@@ -1,18 +1,24 @@
 <%= form_for @book do |f| %>
   <%= f.error_messages %>
-  <p>
+  <div>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
-  </p>
-  <p>
+  </div>
+  <div>
     <%= f.label :author %><br />
     <%= f.text_field :author %>
-  </p>
+  </div>
   <%= f.fields_for :chapters do |c| %>
-    <p>
-      <%= c.label :heading, "Chapter" %><br />
+    <div>
+      <%= c.label :heading, "Chapter" %>
       <%= c.text_field :heading %>
-    </p>
+      <%= c.fields_for :paragraphs do |p| %>
+        <div>
+          <%= p.label :text, "Paragraph" %><br />
+          <%= p.text_area :text, :rows => 3 %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
   <p><%= f.submit %></p>
 <% end %>
